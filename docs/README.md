@@ -14,4 +14,4 @@ cookiecutter https://github.com/Lee-W/cookiecutter-python-template
 ```
 
 ## Authors
-[Lee-W](https://github.com/Lee-W)
+[RainrainWu](https://github.com/RainrainWu)
