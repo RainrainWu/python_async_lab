@@ -9,9 +9,5 @@
 
 ### Usage
 
-```sh
-cookiecutter https://github.com/Lee-W/cookiecutter-python-template
-```
-
 ## Authors
 [RainrainWu](https://github.com/RainrainWu)
