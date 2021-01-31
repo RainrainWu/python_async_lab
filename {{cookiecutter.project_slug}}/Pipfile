@@ -1,0 +1,37 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+# task management
+invoke = "*"
+# test
+pytest = ">=6.0.1"
+pytest-cov = "*"
+pytest-mock = "*"
+pytest-xdist = "*"
+hypothesis = "*"
+coverage = {extras = ["toml"], version = "*"}
+# style
+black = "*"
+isort = ">=5.0.0"
+flake8 = "*"
+mypy = "*"
+pylint = "*"
+# security
+bandit = "*"
+# git
+commitizen = "*"
+pre-commit = "*"
+# documentation
+mkdocs = "*"
+mkdocs-material = "*"
+
+[packages]
+
+[pipenv]
+allow_prereleases = true
+
+[requires]
+python_version = "{{ cookiecutter.python_version }}"
