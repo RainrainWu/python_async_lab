@@ -1,3 +1,3 @@
 VENV_PREFIX = "poetry run"
-_COMMON_TARGETS = ["hooks", "tests"]
+_COMMON_TARGETS = ["hooks", "tests", "labs"]
 COMMON_TARGETS_AS_STR = " ".join(_COMMON_TARGETS)

@@ -15,6 +15,7 @@ exclude = '''
 /(
     \.eggs
   | \.git
+  | \.github
   | \.hg
   | \.mypy_cache
   | \.tox
@@ -83,6 +84,8 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.7"
 py = "^1.10.0"
+celery = "^5.0.5"
+redis = "^3.5.3"
 
 [tool.poetry.dev-dependencies]
 # task management
