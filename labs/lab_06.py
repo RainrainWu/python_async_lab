@@ -1,5 +1,3 @@
-import time
-
 from loguru import logger
 
 from labs.tasks import add_retry_throw

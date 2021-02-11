@@ -20,7 +20,7 @@ def add_rate_limit(x, y):
 @app.task(
     bind=True,
     default_retry_delay=3,
-    autoretry_for=(ValueError,),
+    autoretry_for=(ValueError, ),
     retry_kwargs={"max_retries": 5,},
     retry_jitter=True,
 )
@@ -33,7 +33,7 @@ def add_retry_success(self, x, y):
 @app.task(
     bind=True,
     default_retry_delay=3,
-    autoretry_for=(ValueError,),
+    autoretry_for=(ValueError, ),
     retry_kwargs={"max_retries": 5,},
     retry_jitter=True,
 )
@@ -45,8 +45,8 @@ def add_retry_fail(self, x, y):
 @app.task(
     bind=True,
     default_retry_delay=3,
-    throws=(ZeroDivisionError,),
-    autoretry_for=(ValueError,),
+    throws=(ZeroDivisionError, ),
+    autoretry_for=(ValueError, ),
     retry_kwargs={"max_retries": 5,},
     retry_jitter=True,
 )

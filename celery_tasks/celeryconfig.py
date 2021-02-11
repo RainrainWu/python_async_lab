@@ -13,7 +13,7 @@ task_annotations = {
 }
 
 task_routes = {
-    "labs.tasks.add_route_foo":{
+    "labs.tasks.add_route_foo": {
         "queue": "foo",
     },
 }
