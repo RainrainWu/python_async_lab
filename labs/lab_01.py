@@ -1,9 +1,11 @@
 import time
+
+from loguru import logger
+
 from labs.tasks import add
 
-result = add.delay(4, 4)
-print(result.ready())
+my_task = add.delay(4, 4)
+logger.debug(f"Task ready: {my_task.ready()}")
 time.sleep(1)
-print(result.ready())
-print(result.get(timeout=1))
-print(result.ready())
+logger.debug(f"Task ready: {my_task.ready()}")
+logger.debug(f"Task result: {my_task.get()}")
