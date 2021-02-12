@@ -4,7 +4,7 @@ from loguru import logger
 
 from labs.tasks import add_rate_limit
 
-TASKS_AMOUNT = 15
+TASKS_AMOUNT = 60
 
 tasks_list = []
 for i in range(TASKS_AMOUNT):

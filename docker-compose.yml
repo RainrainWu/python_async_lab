@@ -1,7 +1,52 @@
 version: "3.9"
 
 services:
-  redis:
+  broker_redis:
     image: "redis:alpine"
+    container_name: "redis"
     ports:
       - "6379:6379"
+
+  flower:
+    image: "mher/flower:0.9.7"
+    container_name: "flower"
+    ports:
+      - "5555:5555"
+    environment:
+      - CELERY_BROKER_URL=redis://broker_redis:6379/0
+    depends_on:
+      - broker_redis
+
+  worker_general:
+    image: "rainrainwu/async_lab:latest"
+    container_name: "worker_general"
+    environment:
+      - CELERY_RESULT_BACKEND=redis://broker_redis
+      - CELERY_BROKER_URL=redis://broker_redis:6379/0
+    depends_on:
+      - broker_redis
+    entrypoint: [
+      "celery",
+      "-A", "celery_tasks",
+      "worker",
+      "-Q", "celery,priority",
+      "-c", "16",
+      "-n", "worker_general@%h"
+    ]
+
+  worker_critical:
+    image: "rainrainwu/async_lab:latest"
+    container_name: "worker_critical"
+    environment:
+      - CELERY_RESULT_BACKEND=redis://broker_redis
+      - CELERY_BROKER_URL=redis://broker_redis:6379/0
+    depends_on:
+      - broker_redis
+    entrypoint: [
+      "celery",
+      "-A", "celery_tasks",
+      "worker",
+      "-Q", "critical",
+      "-c", "8",
+      "-n", "worker_critical@%h"
+    ]
