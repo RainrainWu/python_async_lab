@@ -43,7 +43,7 @@ def pylint(ctx):
     ctx.run(f"{VENV_PREFIX} pylint {COMMON_TARGETS_AS_STR}")
 
 
-@task(pre=[flake8, mypy, black_check, isort_check, commit_check], default=True)
+@task(pre=[black_check, isort_check], default=True)
 def run(ctx):
     """Check style throguh linter (Note that pylint is not included)"""
     pass
