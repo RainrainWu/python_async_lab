@@ -2,18 +2,22 @@ import time
 import asyncio
 from threading import Thread
 
+
 async def do_some_work(x):
     print("Waiting " + str(x))
     await asyncio.sleep(x)
+
 
 def start_loop(loop):
     asyncio.set_event_loop(loop)
     loop.run_forever()
 
+
 def more_work(x):
     print("More work %s" % x)
     time.sleep(x)
     print("Finished more work %s" % x)
+
 
 new_loop = asyncio.new_event_loop()
 t = Thread(target=start_loop, args=(new_loop,))
